@@ -26,12 +26,12 @@ const dbConnect = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     };
-  }
 
-  // @ts-ignore
-  cached.promise = mongoose.connect(DB_URL, options).then((mongoose) => {
-    return mongoose;
-  });
+    // @ts-ignore
+    cached.promise = mongoose.connect(DB_URL, options).then((mongoose) => {
+      return mongoose;
+    });
+  }
 
   cached.conn = await cached.promise;
   return cached.conn;

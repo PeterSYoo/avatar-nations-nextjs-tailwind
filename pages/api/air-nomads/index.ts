@@ -1,8 +1,9 @@
 /* eslint-disable import/no-anonymous-default-export */
+import { NextApiRequest, NextApiResponse } from "next";
 import AirNomads from "../../../models/AirNomads";
 import dbConnect from "../../../utils/dbConnect";
 
-export default async (req: any, res: any) => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { method } = req;
 
   await dbConnect(); //Connect to database
@@ -17,7 +18,7 @@ export default async (req: any, res: any) => {
         data: newAirNomad,
         message: "New Air Nomad added succesfully",
       }); /* If we get a 201 http response on response object, the parameter of
-      .json() gets converted to a JSON string using the JSON.stringify() 
+      .json() gets converted to a JSON string using the JSON.stringify()
       method. */
     } catch (error) {
       res.status(500).json({ message: "Internal Server Error" }); /* If we get
