@@ -6,7 +6,7 @@ const Layout = ({ children }: any) => {
       <Head>
         <title>Avatar Nations | NextJS / Tailwind</title>
       </Head>
-      <div>{children}</div>
+      <div className="min-h-screen min-w-screen">{children}</div>
     </>
   );
 };
